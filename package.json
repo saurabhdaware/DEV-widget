@@ -1,0 +1,26 @@
+{
+  "name": "dev-widget",
+  "version": "0.1.0",
+  "description": "Unofficial Widget of DEV",
+  "main": "src/widget.main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "serve src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurabhdaware/DEV-widget.git"
+  },
+  "keywords": [
+    "DEV",
+    "dev.to",
+    "dev",
+    "widget"
+  ],
+  "author": "saurabhdaware",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saurabhdaware/DEV-widget/issues"
+  },
+  "homepage": "https://github.com/saurabhdaware/DEV-widget#readme"
+}
