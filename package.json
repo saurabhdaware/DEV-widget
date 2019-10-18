@@ -2,7 +2,7 @@
   "name": "dev-widget",
   "version": "0.1.0",
   "description": "Unofficial Widget of DEV",
-  "main": "src/widget.main.js",
+  "main": "src/card.component.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "serve src"
