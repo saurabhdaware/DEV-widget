@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/saurabhdaware/DEV-widget/issues"
   },
-  "homepage": "https://github.com/saurabhdaware/DEV-widget#readme"
+  "homepage": "https://github.com/saurabhdaware/DEV-widget#readme",
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
 }
