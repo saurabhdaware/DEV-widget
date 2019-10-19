@@ -6,6 +6,12 @@
 Unofficial Widget/profile card for [DEV / dev.to](https://dev.to/).
 <br><br>
 
+The plan is to build something similar to [Github Profile Cards](https://github.com/saurabhdaware/DEV-widget) (in terms of output code structure would be different)
+
+## Demo
+***Master*** branch of this repository is deployed over [https://dev-widget-demo.netlify.com](https://dev-widget-demo.netlify.com)
+
+
 This project ***under development and not ready to be used yet***. 
 <br><br> Once completed users will be able to use the DEV widget in their personal websites by simply copy pasting following lines of code
 
