@@ -2,6 +2,7 @@
 <p align="left">
 <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/saurabhdaware/dev-widget?style=flat-square"> <a href="CONTRIBUTING.md"><img alt="Contributions to DEV Widget are welcomed" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=flat-square"></a>
 </p>
+
 Unofficial Widget/profile card for [DEV / dev.to](https://dev.to/).
 <br><br>
 
