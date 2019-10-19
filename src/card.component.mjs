@@ -72,7 +72,7 @@ class DevCard extends HTMLElement{
             content.innerHTML += // html
             `
                 <div class="article-card">
-                    ${article.title}
+                    <a href="${article.url}" class="title" target="_blank">${article.title}</a>
                 </div>
             `;
         }

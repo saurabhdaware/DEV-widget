@@ -36,4 +36,10 @@ export const css = // css
     font-size:10pt;
     border-bottom:1px solid #ddd;
 }
+
+.article-card > .title{
+    text-decoration:none;
+    color:#111;
+    font-weight:400;
+}
 `
