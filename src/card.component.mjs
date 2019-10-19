@@ -1,18 +1,6 @@
 import {css} from './card.style.mjs';
 
-const htmlContent =  // html
-`
-<div class="card">
-    <div class="header">
-
-    </div>
-    <div class="content">
-
-    </div>
-</div>
-`;
-
-// Throughout this class 'this' refers to the element <div-card />
+// Throughout this class 'this' refers to the element <dev-card />
 class DevCard extends HTMLElement{
     constructor(){
         super();
@@ -25,10 +13,17 @@ class DevCard extends HTMLElement{
             ${css}
         </style>
         <span class="devcard-htmlContent">
-            ${htmlContent}
+            <div class="card" style="width: ${this.dataset.width}">
+                <div class="header">
+    
+                 </div>
+                <div class="content">
+    
+                </div>
+            </div>
         </span>
         `
-
+        
         this._shadowRoot = this.attachShadow({ mode: 'open' });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.style.display = 'inline-block';
@@ -37,7 +32,7 @@ class DevCard extends HTMLElement{
     // Methods from parent class HTMLElement.
 
     static get observedAttributes(){
-        return ['data-username'];
+        return ['data-username', 'data-width'];
     }
 
     attributeChangedCallback(name,oldUsername,newUsername){
