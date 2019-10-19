@@ -55,8 +55,15 @@ class DevCard extends HTMLElement{
 
     createCard(){
         // Main logic goes here
+        console.log(this.articles);
         this._shadowRoot.querySelector('.header').innerHTML = `<h1>Hi I am header</h1>`
-        this._shadowRoot.querySelector('.content').innerHTML = `<h3>Hi I am content</h1>`;
+        for(let article of this.articles){
+            this._shadowRoot.querySelector('.content').innerHTML += `
+                <div class="article-card">
+                    ${article.title}
+                </div>
+            `;
+        }
     }
 
     render(){
