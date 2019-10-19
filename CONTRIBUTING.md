@@ -20,3 +20,7 @@ The code is based upon web components and does not use any dependency. You can r
 - Push your changes to the branch
 - Create a pull request from your branch to `master` of my branch.
 
+
+# Development Guide
+- If you are looking to add HTML then checkout `createCard()` function from `card.component.mjs`
+- If you are looking to add CSS then checkout `card.style.mjs`

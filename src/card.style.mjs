@@ -1,6 +1,13 @@
 export const css = // css
 `
-.hi{
+.card{
+    width:300px;
+}
+.header{
+    background-color:#111;
+    color:#fff;
+}
+.content{
     background-color:#f30;
 }
 `

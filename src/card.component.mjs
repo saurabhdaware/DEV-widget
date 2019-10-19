@@ -2,11 +2,13 @@ import {css} from './card.style.mjs';
 
 const htmlContent =  // html
 `
-<div class="header">
+<div class="card">
+    <div class="header">
 
-</div>
-<div class="content">
+    </div>
+    <div class="content">
 
+    </div>
 </div>
 `;
 
@@ -29,6 +31,7 @@ class DevCard extends HTMLElement{
 
         this._shadowRoot = this.attachShadow({ mode: 'open' });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+        this.style.display = 'inline-block';
     }
 
     // Methods from parent class HTMLElement.
@@ -51,7 +54,9 @@ class DevCard extends HTMLElement{
     // Custom Methods of this class
 
     createCard(){
-        this._shadowRoot.querySelector('.content').innerHTML = JSON.stringify(this.articles);
+        // Main logic goes here
+        this._shadowRoot.querySelector('.header').innerHTML = `<h1>Hi I am header</h1>`
+        this._shadowRoot.querySelector('.content').innerHTML = `<h3>Hi I am content</h1>`;
     }
 
     render(){
