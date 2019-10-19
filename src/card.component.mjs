@@ -56,16 +56,28 @@ class DevCard extends HTMLElement{
     createCard(){
         // Main logic goes here
         console.log(this.articles);
-        this._shadowRoot.querySelector('.header').innerHTML = `<span class="name">${this.articles[0].user.name}</span>`
+
+        const header = this._shadowRoot.querySelector('.header');
+        const content = this._shadowRoot.querySelector('.content');
+
+        header.innerHTML = // html
+        `   <img class="profile-pic" src="${this.articles[0].user.profile_image_90}">
+            <div class="name-container">
+                ${this.articles[0].user.name}
+            </div>
+        `;
+
+        content.innerHTML = '';
         for(let article of this.articles){
-            this._shadowRoot.querySelector('.content').innerHTML += `
+            content.innerHTML += // html
+            `
                 <div class="article-card">
                     ${article.title}
                 </div>
-                <hr>
             `;
         }
     }
+    
 
     render(){
         return fetch('https://dev.to/api/articles?username='+this.dataset.username)
