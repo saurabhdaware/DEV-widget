@@ -50,13 +50,15 @@ class DevCard extends HTMLElement{
         const header = this._shadowRoot.querySelector('.header');
         const content = this._shadowRoot.querySelector('.content');
 
+        const profilePic = this.articles[0].user.profile_image_90;
+
         header.innerHTML = // html
         `
             <a class="dev-logo" target="_blank" href="https://dev.to/${this.articles[0].user.username}">
                 <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Saurabh Daware's DEV Profile">
             </a>    
-            <img class="profile-pic" src="${this.articles[0].user.profile_image_90}">
-            <div class="name-container">
+            ${(profilePic)?`<img class="profile-pic" src="${profilePic}">`:''}
+            <div class="name-container" ${(profilePic)?'':'style="margin-left:20px;"'}>
                 <span>${this.articles[0].user.name}</span>
                 <div class="view-profile-container">
                     <a class="view-profile-button" href="https://dev.to/${this.articles[0].user.username}">View Profile</a>
@@ -65,6 +67,12 @@ class DevCard extends HTMLElement{
         `;
 
         content.innerHTML = '';
+        if(this.articles[0].title === ''){ // IF no articles
+            content.style.maxHeight = '0px';
+            content.style.minHeight = '0px';
+            return;
+        }
+
         for(let article of this.articles){
             content.innerHTML += // html
             `
@@ -87,10 +95,25 @@ class DevCard extends HTMLElement{
         return fetch('https://dev.to/api/articles?username='+this.dataset.username)
             .then(res => res.json())
             .then(articles => {
-                this.articles = articles;
-                this.createCard()
+                if(articles.length == 0){
+                    this.articles = [{
+                        "user":{
+                            "username": this.dataset.username,
+                            "name": this.dataset.username,
+                            "profile_image_90": ''
+                        },
+                        "url":'',
+                        "title":''
+                    }]
+                }else{
+                    this.articles = articles;
+                }
+
+                this.createCard();
             })
-            .catch(console.error);
+            .catch(err => {
+                console.log(err);
+            });
     }
     
 }
