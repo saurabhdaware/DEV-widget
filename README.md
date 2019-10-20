@@ -5,6 +5,8 @@
 
 ***Demo*** : [https://dev-widget-demo.netlify.com](https://dev-widget-demo.netlify.com)
 
+***Codepen***: [https://codepen.io/saurabhdaware/pen/NWWbOvv](https://codepen.io/saurabhdaware/pen/NWWbOvv)
+
 Unofficial Widget/profile card for [DEV / dev.to](https://dev.to/).
 <br><br>
 
