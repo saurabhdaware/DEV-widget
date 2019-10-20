@@ -13,7 +13,7 @@ class DevCard extends HTMLElement{
             ${css}
         </style>
         <span class="devcard-htmlContent">
-            <div class="card" style="width: ${this.dataset.width}">
+            <div class="card">
                 <div class="header">
     
                  </div>
@@ -27,6 +27,7 @@ class DevCard extends HTMLElement{
         this._shadowRoot = this.attachShadow({ mode: 'open' });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.style.display = 'inline-block';
+        this.style.width = this.dataset.width;
     }
 
     // Methods from parent class HTMLElement.
