@@ -3,11 +3,11 @@
 <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/saurabhdaware/dev-widget?style=flat-square"> <a href="CONTRIBUTING.md"><img alt="Contributions to DEV Widget are welcomed" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=flat-square"></a>
 </p>
 
-***Demo*** : [https://dev-widget-demo.netlify.com](https://dev-widget-demo.netlify.com)
-
 ***Codepen***: [https://codepen.io/saurabhdaware/pen/NWWbOvv](https://codepen.io/saurabhdaware/pen/NWWbOvv)
 
-Unofficial Widget/profile card for [DEV / dev.to](https://dev.to/).
+Unofficial Widget / profile card for [dev.to](https://dev.to/). 
+
+You can use it in your website/blog and show off your DEV.to articles :sunflower:
 <br><br>
 
 [![Screenshot of the DEV.to Widget](https://res.cloudinary.com/saurabhdaware/image/upload/v1571605298/saurabh2019/Screenshot_from_2019-10-21_02-30-14.png)](#installation-and-usage)
@@ -23,7 +23,7 @@ Unofficial Widget/profile card for [DEV / dev.to](https://dev.to/).
     <dev-widget data-username="saurabhdaware"></dev-widget>
 
     <!-- Place script tag before the end of the body tag -->
-    <script src="https://unpkg.com/dev-widget@1.0.0/dist/card.component.mjs" type="module"></script>
+    <script src="https://unpkg.com/dev-widget@1.0.1/dist/card.component.mjs" type="module"></script>
 ```
 
 
@@ -57,7 +57,7 @@ So a full example would look something like
 <dev-widget data-username="saurabhdaware" data-width="320px" data-limit="3" data-name="Saurabh 😎"></dev-widget>
 
 <!-- Place script tag before the end of the body tag -->
-<script src="https://unpkg.com/dev-widget@1.0.0/dist/card.component.mjs" type="module"></script>
+<script src="https://unpkg.com/dev-widget@1.0.1/dist/card.component.mjs" type="module"></script>
 ```
 
 ---
