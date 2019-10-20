@@ -5,29 +5,23 @@ class DevCard extends HTMLElement{
     constructor(){
         super();
 
-        
-
         // Create template and set HTML and css and append it to shadow root
         const template = document.createElement('template');
-        template.innerHTML = `<style>
+        template.innerHTML = // html
+        `<style>
             ${css}
         </style>
-        <span class="devcard-htmlContent">
-            <div class="card">
-                <div class="header">
-    
-                 </div>
-                <div class="content">
-    
-                </div>
+        <div class="card">
+            <div class="header"></div>
+            <div class="content">
+
             </div>
-        </span>
+        </div>
         `
         
         this._shadowRoot = this.attachShadow({ mode: 'open' });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.style.display = 'inline-block';
-        this.style.width = this.dataset.width;
     }
 
     // Methods from parent class HTMLElement.
@@ -76,6 +70,12 @@ class DevCard extends HTMLElement{
     
 
     render(){
+        const computedWidth = getComputedStyle(this).width;
+        if(computedWidth == '15px'){
+            this.style.width = this.dataset.width || '300px';
+        }else{
+            this.style.width = computedWidth;
+        }
         return fetch('https://dev.to/api/articles?username='+this.dataset.username)
             .then(res => res.json())
             .then(articles => {
