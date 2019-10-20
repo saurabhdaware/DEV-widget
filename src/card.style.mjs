@@ -19,12 +19,12 @@ export const css = // css
     overflow:hidden;
 }
 @media (max-width:768px){
-    .header{background-color:#222;}
+    .header{background-color:#111;}
 }
 .content{
     background-color:#fff;
     max-height:300px;
-    min-height:100px;
+    min-height:70px;
     overflow-y:scroll;
 }
 
@@ -87,9 +87,11 @@ export const css = // css
     right:-10px;
     top:10px;
     width:130px;
-    opacity:.3;
-    z-index:0;
+    opacity:.1;
+    filter:invert(50%);
+    z-index:1;
 }
+
 .article-icon{
     margin-top:7px;
     padding-left:5px;
