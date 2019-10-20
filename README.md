@@ -22,7 +22,7 @@ This project ***under development and not ready to be used yet***.
     <dev-widget data-username="saurabhdaware"></dev-widget>
 
     <!-- Place script tag before the end of the body tag -->
-    <script src="https://unpkg.com/browse/dev-widget/dist/card.component.mjs" type="module"></script>
+    <script src="https://unpkg.com/dev-widget/dist/card.component.mjs" type="module"></script>
 ```
 
 
