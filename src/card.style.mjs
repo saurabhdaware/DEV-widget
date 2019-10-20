@@ -90,4 +90,16 @@ export const css = // css
     opacity:.3;
     z-index:0;
 }
+.article-icon{
+    margin-top:7px;
+    padding-left:5px;
+}
+.article-icon > img{
+    width:9px;
+    opacity:.2;
+}
+.article-icon > span{
+    color:#999;
+    font-size:7pt;
+}
 `

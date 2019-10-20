@@ -47,8 +47,6 @@ class DevCard extends HTMLElement{
 
     createCard(){
         // Main logic goes here
-        console.log(this.articles);
-
         const header = this._shadowRoot.querySelector('.header');
         const content = this._shadowRoot.querySelector('.content');
         let data = {}
@@ -89,7 +87,14 @@ class DevCard extends HTMLElement{
             content.innerHTML += // html
             `
                 <a href="${article.url}" target="_blank" class="article-card">
-                    <span class="title">${article.title}</span>
+                    <span class="title">${article.title}</span><br>
+                    <div class="article-icon">
+                        <img src="https://res.cloudinary.com/saurabhdaware/image/upload/v1571587358/saurabh2019/heart-solid.svg">
+                        <span> ${article.positive_reactions_count}</span>
+                        &nbsp;&nbsp;
+                        <img src="https://res.cloudinary.com/saurabhdaware/image/upload/v1571587349/saurabh2019/comment-solid.svg">
+                        <span> ${article.comments_count}</span>
+                    </div>
                 </a>
             `;
         }

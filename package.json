@@ -1,6 +1,6 @@
 {
   "name": "dev-widget",
-  "version": "0.1.0",
+  "version": "1.0.0-beta.1",
   "description": "Unofficial Widget of DEV",
   "main": "src/card.component.mjs",
   "scripts": {
