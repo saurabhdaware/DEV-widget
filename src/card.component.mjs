@@ -44,6 +44,24 @@ export class DevCard extends HTMLElement{
 
     // Custom Methods of this class
 
+    renderArticles(articles){
+        for(let article of articles){
+            this._shadowRoot.querySelector('.content').innerHTML += // html
+            `
+                <a href="${article.url}" target="_blank" class="article-card">
+                    <span class="title">${article.title}</span><br>
+                    <div class="article-icon">
+                        <img src="https://res.cloudinary.com/saurabhdaware/image/upload/v1571587358/saurabh2019/heart-solid.svg">
+                        <span> ${article.positive_reactions_count}</span>
+                        &nbsp;&nbsp;
+                        <img src="https://res.cloudinary.com/saurabhdaware/image/upload/v1571587349/saurabh2019/comment-solid.svg">
+                        <span> ${article.comments_count}</span>
+                    </div>
+                </a>
+            `;
+        }
+    }
+
     createCard(){
         // Main logic goes here
         const header = this._shadowRoot.querySelector('.header');
@@ -81,41 +99,39 @@ export class DevCard extends HTMLElement{
             content.style.minHeight = '0px';
             return;
         }
-
-        for(let article of this.articles){
-            content.innerHTML += // html
-            `
-                <a href="${article.url}" target="_blank" class="article-card">
-                    <span class="title">${article.title}</span><br>
-                    <div class="article-icon">
-                        <img src="https://res.cloudinary.com/saurabhdaware/image/upload/v1571587358/saurabh2019/heart-solid.svg">
-                        <span> ${article.positive_reactions_count}</span>
-                        &nbsp;&nbsp;
-                        <img src="https://res.cloudinary.com/saurabhdaware/image/upload/v1571587349/saurabh2019/comment-solid.svg">
-                        <span> ${article.comments_count}</span>
-                    </div>
-                </a>
-            `;
-        }
     }
 
     setWidth(){
         this.style.width = this.dataset.width || '300px';
     }
 
-    render(){
-        this.style.display = 'inline-block';
-        this.articles = [];
-        this.setWidth();
-        return fetch('https://dev.to/api/articles?username='+this.dataset.username)
+    fetchArticles(pageNumber,articlesNumber = 30){
+        return fetch('https://dev.to/api/articles?username='+this.dataset.username+'&page='+pageNumber)
             .then(res => res.json())
             .then(articles => {
                 this.articles = articles;
-                this.createCard();
+                if(pageNumber === 1){
+                    this.createCard();
+                }
+                this.renderArticles(this.articles.slice(0,articlesNumber));
+                if(this.articles.length === 30 && pageNumber < this.pageLimit){
+                    if((pageNumber + 1) === this.pageLimit){ // IF(Last page):
+                        this.fetchArticles(++pageNumber, this.limit % 30);
+                    }else{
+                        this.fetchArticles(++pageNumber); // Calling recursively untill pageLimit reached
+                    }
+                }
             })
-            .catch(err => {
-                console.log(err);
-            });
+    }
+
+    render(){
+        this.style.display = 'inline-block';
+        this.articles = [];
+        this.limit = this.dataset.limit || 30;
+        this.pageLimit = Math.ceil(this.limit / 30);
+        this.setWidth();
+        this.fetchArticles(1, this.limit)
+            .catch(err => console.error(err));
     }
     
 }
