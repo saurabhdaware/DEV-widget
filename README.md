@@ -8,8 +8,9 @@
 Unofficial Widget/profile card for [DEV / dev.to](https://dev.to/).
 <br><br>
 
-[![Screenshot of the DEV.to Widget](https://res.cloudinary.com/saurabhdaware/image/upload/v1571597403/saurabh2019/Screenshot_from_2019-10-21_00-09-22.png)](#installation-and-usage)
+[![Screenshot of the DEV.to Widget](https://res.cloudinary.com/saurabhdaware/image/upload/v1571605298/saurabh2019/Screenshot_from_2019-10-21_02-30-14.png)](#installation-and-usage)
 
+---
 
 ## Installation and Usage
 
@@ -36,4 +37,31 @@ Inside your framework component
 ```js
 import 'dev-widget'
 ```
-You can checkout [CONTRIBUTING.md](CONTRIBUTING.md) for Contribution guidelines.
+
+
+--- 
+
+## Attributes Guide
+
+| attributes    | description                   | default                  | 
+|---------------|-------------------------------|--------------------------|
+| data-username | Your DEV.to Username          |                          |
+| data-width    | Width of the card             | 300px                    |
+| data-name (optional)    | Name to display on card       | Will be fetched from API |
+| data-limit    | Number of articles to display | 30                       |
+
+**Note:** Value of `data-limit` should not be too high. An API request has to be made for every 30 articles so for `data-limit=200` 7 API requests will be made synchronously.
+
+So a full example would look something like 
+```html
+<dev-widget data-username="saurabhdaware" data-width="320px" data-limit="3" data-name="Saurabh 😎"></dev-widget>
+
+<!-- Place script tag before the end of the body tag -->
+<script src="https://unpkg.com/dev-widget/dist/card.component.mjs" type="module"></script>
+```
+
+---
+
+## Contributing
+
+I would love to have some of your contributions on this project. You can checkout [CONTRIBUTING.md](CONTRIBUTING.md) for Contribution guidelines.
