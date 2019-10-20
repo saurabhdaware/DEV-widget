@@ -23,7 +23,7 @@ This project ***under development and not ready to be used yet***.
     <dev-widget data-username="saurabhdaware"></dev-widget>
 
     <!-- Place script tag before the end of the body tag -->
-    <script src="https://unpkg.com/dev-widget/dist/card.component.mjs" type="module"></script>
+    <script src="https://unpkg.com/dev-widget@1.0.0/dist/card.component.mjs" type="module"></script>
 ```
 
 
@@ -57,7 +57,7 @@ So a full example would look something like
 <dev-widget data-username="saurabhdaware" data-width="320px" data-limit="3" data-name="Saurabh 😎"></dev-widget>
 
 <!-- Place script tag before the end of the body tag -->
-<script src="https://unpkg.com/dev-widget/dist/card.component.mjs" type="module"></script>
+<script src="https://unpkg.com/dev-widget@1.0.0/dist/card.component.mjs" type="module"></script>
 ```
 
 ---
