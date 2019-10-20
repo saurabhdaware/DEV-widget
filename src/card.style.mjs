@@ -12,11 +12,14 @@ export const css = // css
     width:70px;
 }
 .header{
-    background-color:#151515;
+    background-color:#111;
     color:#fff;
     position:relative;
     height:120px;
     overflow:hidden;
+}
+@media (max-width:768px){
+    .header{background-color:#222;}
 }
 .content{
     background-color:#fff;
@@ -79,14 +82,12 @@ export const css = // css
     font-weight:400;
 }
 
-.dev-logo img{
-    width:100px;
-    opacity:.2;
-}
 .dev-logo{
     position:absolute;
     right:-10px;
-    top:20px;
+    top:10px;
+    width:130px;
+    opacity:.3;
     z-index:0;
 }
 `
