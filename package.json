@@ -1,11 +1,13 @@
 {
   "name": "dev-widget",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta",
   "description": "Unofficial Widget of DEV",
-  "main": "src/card.component.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "serve src"
+    "dev": "serve src",
+    "build": "node build/build.main.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/saurabhdaware/DEV-widget#readme",
   "devDependencies": {
+    "fs-extra": "^8.1.0",
     "serve": "^11.2.0"
   }
 }

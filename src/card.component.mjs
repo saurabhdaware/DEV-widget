@@ -1,45 +1,44 @@
 import {css} from './card.style.mjs';
+const template = document.createElement('template');
+template.innerHTML = // html
+`<style>
+    ${css}
+</style>
+<div class="card">
+    <div class="header">
+        <img class="dev-logo" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Saurabh Daware's DEV Profile">
+    </div>
+    <div class="content">
 
-// Throughout this class 'this' refers to the element <dev-card />
-class DevCard extends HTMLElement{
+    </div>
+</div>
+`
+// Throughout this class 'this' refers to the element <dev-widget />
+export class DevCard extends HTMLElement{
     constructor(){
         super();
 
-        // Create template and set HTML and css and append it to shadow root
-        const template = document.createElement('template');
-        template.innerHTML = // html
-        `<style>
-            ${css}
-        </style>
-        <div class="card">
-            <div class="header">
-                <img class="dev-logo" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Saurabh Daware's DEV Profile">
-            </div>
-            <div class="content">
-
-            </div>
-        </div>
-        `
-        
+        // Append template to shadow root
         this._shadowRoot = this.attachShadow({ mode: 'open' });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.style.display = 'inline-block';
     }
 
     // Methods from parent class HTMLElement.
 
-    static get observedAttributes(){
-        return ['data-width'];
+    static get observedAttributes() { 
+        return ['data-width']; 
     }
 
-    attributeChangedCallback(name,oldUsername,newUsername){
-        this[name] = newUsername;
-        this.render();
+    attributeChangedCallback(attr, oldValue, newValue) {
+        if (attr == 'data-width' && oldValue != newValue) {
+            this[attr] = newValue;
+            this.setWidth();
+        }
     }
 
     connectedCallback(){
         // mounted
-
+        this.render();
     }
 
 
@@ -99,18 +98,15 @@ class DevCard extends HTMLElement{
             `;
         }
     }
-    
+
+    setWidth(){
+        this.style.width = this.dataset.width || '300px';
+    }
 
     render(){
-        const computedWidth = getComputedStyle(this, null).width;
-        if(computedWidth == '1px'){ // width is not set in css
-            this.style.width = this.dataset.width || '300px';
-        }else{
-            this.style.width = computedWidth;
-        }
-
+        this.style.display = 'inline-block';
         this.articles = [];
-
+        this.setWidth();
         return fetch('https://dev.to/api/articles?username='+this.dataset.username)
             .then(res => res.json())
             .then(articles => {
@@ -124,4 +120,4 @@ class DevCard extends HTMLElement{
     
 }
 
-customElements.define('dev-card',DevCard);
+customElements.define('dev-widget',DevCard);
