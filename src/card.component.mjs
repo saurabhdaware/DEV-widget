@@ -27,7 +27,7 @@ class DevCard extends HTMLElement{
     // Methods from parent class HTMLElement.
 
     static get observedAttributes(){
-        return ['data-username', 'data-width'];
+        return ['data-width'];
     }
 
     attributeChangedCallback(name,oldUsername,newUsername){
@@ -51,9 +51,16 @@ class DevCard extends HTMLElement{
         const content = this._shadowRoot.querySelector('.content');
 
         header.innerHTML = // html
-        `   <img class="profile-pic" src="${this.articles[0].user.profile_image_90}">
+        `
+            <a class="dev-logo" target="_blank" href="https://dev.to/${this.articles[0].user.username}">
+                <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Saurabh Daware's DEV Profile">
+            </a>    
+            <img class="profile-pic" src="${this.articles[0].user.profile_image_90}">
             <div class="name-container">
-                ${this.articles[0].user.name}
+                <span>${this.articles[0].user.name}</span>
+                <div class="view-profile-container">
+                    <a class="view-profile-button" href="https://dev.to/${this.articles[0].user.username}">View Profile</a>
+                </div>
             </div>
         `;
 
@@ -61,21 +68,22 @@ class DevCard extends HTMLElement{
         for(let article of this.articles){
             content.innerHTML += // html
             `
-                <div class="article-card">
-                    <a href="${article.url}" class="title" target="_blank">${article.title}</a>
-                </div>
+                <a href="${article.url}" target="_blank" class="article-card">
+                    <span class="title">${article.title}</span>
+                </a>
             `;
         }
     }
     
 
     render(){
-        const computedWidth = getComputedStyle(this).width;
-        if(computedWidth == '15px'){
+        const computedWidth = getComputedStyle(this, null).width;
+        if(computedWidth == '1px'){ // width is not set in css
             this.style.width = this.dataset.width || '300px';
         }else{
             this.style.width = computedWidth;
         }
+
         return fetch('https://dev.to/api/articles?username='+this.dataset.username)
             .then(res => res.json())
             .then(articles => {

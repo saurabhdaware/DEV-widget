@@ -7,38 +7,86 @@ export const css = // css
 }
 .profile-pic{
     position:absolute;
-    top:14px;left:20px;
+    top:23px;left:20px;
     border-radius:100%;
     width:70px;
 }
 .header{
-    background-color:#111;
+    background-color:#151515;
     color:#fff;
     position:relative;
-    height:100px;
+    height:120px;
+    overflow:hidden;
 }
 .content{
     background-color:#fff;
     max-height:300px;
+    min-height:100px;
     overflow-y:scroll;
+}
+
+.content::-webkit-scrollbar {
+    width: 1px;
+}
+ 
+.content::-webkit-scrollbar-track {
+    background-color:#eee;
+}
+ 
+.content::-webkit-scrollbar-thumb {
+  background-color:#222;
 }
 
 .header > .name-container{
     font-weight:bold;
-    font-size:15pt;
+    font-size:14pt;
+    overflow-x:hidden;
     margin-left:100px;
-    padding:20px 5px;
+    padding:30px 5px;
+    position:relative;
+    z-index:1;
 }
 
+.header > .name-container div.view-profile-container{
+    margin-top:3px;
+}
+
+.header > .name-container .view-profile-button{
+    background-color:#ddd;
+    color:#222;
+    font-size:10pt;
+    border-radius:3px;
+    padding:5px 10px;
+    position:relative;
+    top:6px;
+    text-decoration:none;
+}
 .article-card{
     padding:10px 10px;
     font-size:10pt;
     border-bottom:1px solid #ddd;
+    display:block;
+    text-decoration:none;
+    transition:background-color .5s ease;
 }
-
+.article-card:hover{
+    background-color:#eee;
+    transition:background-color .5s ease;
+}
 .article-card > .title{
     text-decoration:none;
     color:#111;
     font-weight:400;
+}
+
+.dev-logo img{
+    width:100px;
+    opacity:.2;
+}
+.dev-logo{
+    position:absolute;
+    right:-10px;
+    top:20px;
+    z-index:0;
 }
 `
