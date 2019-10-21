@@ -1,13 +1,14 @@
 {
   "name": "dev-widget",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Unofficial Widget of DEV",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "serve src",
-    "build": "node build/build.main.js"
+    "build": "node build/build.main.js",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

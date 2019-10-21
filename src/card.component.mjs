@@ -71,7 +71,7 @@ export class DevCard extends HTMLElement{
             data = {
                 profilePic: false,
                 name: this.dataset.name || this.dataset.username,
-                url: this.dataset.username
+                url: 'https://dev.to/' + this.dataset.username
             }
         }else{
             data = {
