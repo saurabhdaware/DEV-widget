@@ -23,7 +23,7 @@ You can use it in your website/blog and show off your DEV.to articles :sunflower
     <dev-widget data-username="saurabhdaware"></dev-widget>
 
     <!-- Place script tag before the end of the body tag -->
-    <script src="https://unpkg.com/dev-widget@1.0.2/dist/card.component.mjs" type="module" integrity="sha384-755Jblzb17ugkA3KRCLz4XS8CPb3xEwBdBMk8ZBw51agtKmppILXMJrKvuTRkUhy"></script>
+    <script src="https://unpkg.com/dev-widget@1.0.3/dist/card.component.mjs" type="module"></script>
 ```
 
 
@@ -57,7 +57,7 @@ So a full example would look something like
 <dev-widget data-username="saurabhdaware" data-width="320px" data-limit="3" data-name="Saurabh 😎"></dev-widget>
 
 <!-- Place script tag before the end of the body tag -->
-<script src="https://unpkg.com/dev-widget@1.0.2/dist/card.component.mjs" type="module" integrity="sha384-755Jblzb17ugkA3KRCLz4XS8CPb3xEwBdBMk8ZBw51agtKmppILXMJrKvuTRkUhy"></script>
+<script src="https://unpkg.com/dev-widget@1.0.3/dist/card.component.mjs" type="module"></script>
 ```
 
 ---
