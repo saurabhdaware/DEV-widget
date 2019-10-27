@@ -6,7 +6,7 @@ template.innerHTML = // html
 </style>
 <div class="card">
     <div class="header">
-        <img class="dev-logo" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Saurabh Daware's DEV Profile">
+        <img class="dev-logo" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV Logo">
     </div>
     <div class="content">
 
@@ -84,7 +84,7 @@ export class DevCard extends HTMLElement{
 
         header.innerHTML += // html
         `
-            ${(data.profilePic)?`<img class="profile-pic" src="${data.profilePic}">`:''}
+            ${(data.profilePic)?`<img class="profile-pic" src="${data.profilePic}" alt="${this.articles[0].user.name}'s DEV Profile">`:''}
             <div class="name-container" ${(data.profilePic)?'':'style="margin-left:20px;"'}>
                 <span>${data.name}</span>
                 <div class="view-profile-container">
