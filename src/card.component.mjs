@@ -6,7 +6,7 @@ template.innerHTML = // html
 </style>
 <div class="card">
     <div class="header">
-        <img class="dev-logo" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV Logo">
+        <img class="dev-logo" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV widget logo">
     </div>
     <div class="content">
 
@@ -26,13 +26,18 @@ export class DevCard extends HTMLElement{
     // Methods from parent class HTMLElement.
 
     static get observedAttributes() { 
-        return ['data-width']; 
+        return ['data-width', 'data-theme']; 
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
         if (attr == 'data-width' && oldValue != newValue) {
             this[attr] = newValue;
             this.setWidth();
+        }
+
+        if(attr == 'data-theme' && oldValue != newValue && newValue != ''){
+            this[attr] = newValue;
+            this.setTheme(newValue);
         }
     }
 
@@ -80,11 +85,10 @@ export class DevCard extends HTMLElement{
                 url: 'https://dev.to/' + this.articles[0].user.username
             }
         }
-        // const profilePic = this.articles[0].user.profile_image_90;
 
         header.innerHTML += // html
         `
-            ${(data.profilePic)?`<img class="profile-pic" src="${data.profilePic}" alt="${this.articles[0].user.name}'s DEV Profile">`:''}
+            ${(data.profilePic)?`<img class="profile-pic" src="${data.profilePic}" alt="${data.name}'s DEV Profile">`:''}
             <div class="name-container" ${(data.profilePic)?'':'style="margin-left:20px;"'}>
                 <span>${data.name}</span>
                 <div class="view-profile-container">
@@ -99,6 +103,12 @@ export class DevCard extends HTMLElement{
             content.style.minHeight = '0px';
             return;
         }
+    }
+
+    setTheme(theme){
+        let card = this._shadowRoot.childNodes[2];
+        card.className = '';
+        card.classList.add('card',theme);
     }
 
     setWidth(){
