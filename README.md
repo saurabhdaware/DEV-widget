@@ -62,6 +62,11 @@ So a full example would look something like
 ```
 
 ---
+## Themes
+`default` `ocean`  `pink`  `dark`
+![DEV Widget themes](https://res.cloudinary.com/saurabhdaware/image/upload/v1574802681/saurabhdawaretk/dev-widget-2.png)
+
+---
 
 ## Changelog
 **[RELEASES](https://github.com/saurabhdaware/DEV-widget/releases)**
