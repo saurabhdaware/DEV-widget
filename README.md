@@ -23,7 +23,7 @@ You can use it in your website/blog and show off your DEV.to articles :sunflower
     <dev-widget data-username="saurabhdaware"></dev-widget>
 
     <!-- Place script tag before the end of the body tag -->
-    <script src="https://unpkg.com/dev-widget@1.0.3/dist/card.component.mjs" type="module"></script>
+    <script src="https://unpkg.com/dev-widget@1.1.0/dist/card.component.min.mjs" type="module"></script>
 ```
 
 
@@ -47,6 +47,7 @@ import 'dev-widget'
 |---------------|-------------------------------|--------------------------|
 | data-username | Your DEV.to Username          |                          |
 | data-width    | Width of the card             | 300px                    |
+| data-theme    | **Theme of the card** (dark, ocean, pink, default) | default                  |
 | data-name (optional)    | Name to display on card       | Will be fetched from API |
 | data-limit    | Number of articles to display | 30                       |
 
@@ -54,14 +55,24 @@ import 'dev-widget'
 
 So a full example would look something like 
 ```html
-<dev-widget data-username="saurabhdaware" data-width="320px" data-limit="3" data-name="Saurabh 😎"></dev-widget>
+<dev-widget data-username="saurabhdaware" data-width="320px" data-theme="ocean" data-limit="3" data-name="Saurabh 😎" ></dev-widget>
 
 <!-- Place script tag before the end of the body tag -->
-<script src="https://unpkg.com/dev-widget@1.0.3/dist/card.component.mjs" type="module"></script>
+<script src="https://unpkg.com/dev-widget@1.1.0/dist/card.component.min.mjs" type="module"></script>
 ```
+
+---
+## Themes
+`default` `ocean`  `pink`  `dark`
+![DEV Widget themes](https://res.cloudinary.com/saurabhdaware/image/upload/v1574802681/saurabhdawaretk/dev-widget-2.png)
+
+---
+
+## Changelog
+**[RELEASES](https://github.com/saurabhdaware/DEV-widget/releases)**
 
 ---
 
 ## Contributing
 
-I would love to have some of your contributions on this project. You can checkout [CONTRIBUTING.md](CONTRIBUTING.md) for Contribution guidelines.
+I would love to have some of your contributions to this project. You can checkout [CONTRIBUTING.md](CONTRIBUTING.md) for Contribution guidelines.
