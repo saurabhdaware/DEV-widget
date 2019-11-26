@@ -14,7 +14,7 @@ export const css = // css
     --button-bg: #ddd;
     --button-color: #222;
     --scroll-track: #eee;
-    --scroll-thumb: #222;
+    --scroll-thumb: #666;
     --likes-color: #999;
 }
 
@@ -46,8 +46,8 @@ export const css = // css
     --content-color: #555;
     --button-bg: #222;
     --button-color: #ddd;
-    --scroll-track: #ffc0cb;
-    --scroll-thumb: #999;
+    --scroll-track: transparent;
+    --scroll-thumb: #ffc0cb;
     --likes-color: #999;
 }
 
@@ -62,7 +62,7 @@ export const css = // css
     --content-color: #5A5B66;
     --button-bg: #999;
     --button-color: #222;
-    --scroll-track: #777;
+    --scroll-track: #444;
     --scroll-thumb: #000;
     --likes-color: #555;
     --likes-icon-filter: invert(90%);
@@ -92,7 +92,7 @@ export const css = // css
 }
 
 .content::-webkit-scrollbar {
-    width: 1px;
+    width: 2px;
 }
  
 .content::-webkit-scrollbar-track {
@@ -101,6 +101,7 @@ export const css = // css
  
 .content::-webkit-scrollbar-thumb {
   background-color: var(--scroll-thumb);
+  border-radius: 5px;
 }
 
 .header > .name-container{

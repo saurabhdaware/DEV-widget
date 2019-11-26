@@ -1,0 +1,1 @@
+***Changelogs are mentioned in the [Releases](https://github.com/saurabhdaware/DEV-widget/releases) Section***
