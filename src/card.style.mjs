@@ -68,6 +68,22 @@ export const css = // css
     --likes-icon-filter: invert(90%);
 }
 
+.card.cobalt2 {
+    --header-bg:#193549;
+    --header-color:#e1efff;
+    --header-logo-filter: invert(0%);
+    --content-bg: #15232d;
+    --content-bghover: #1F4662;
+    --content-border: #234E6D;
+    --content-color: #e1efff;
+    --button-bg: #ff9d00;
+    --button-color: #15232D;
+    --scroll-track: #122738;
+    --scroll-thumb: #ffc600;
+    --likes-color: #ccc;
+    --likes-icon-filter: invert(100%);
+}
+
 .profile-pic{
     position:absolute;
     top:23px;left:20px;
