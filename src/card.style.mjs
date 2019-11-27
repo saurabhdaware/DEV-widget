@@ -70,7 +70,7 @@ export const css = // css
 
 .card.cobalt2 {
     --header-bg:#193549;
-    --header-color:#ccc;
+    --header-color:#e1efff;
     --header-logo-filter: invert(0%);
     --content-bg: #163042;
     --content-bghover: #1F4662;
