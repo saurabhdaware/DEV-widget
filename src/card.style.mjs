@@ -72,9 +72,9 @@ export const css = // css
     --header-bg:#193549;
     --header-color:#e1efff;
     --header-logo-filter: invert(0%);
-    --content-bg: #163042;
+    --content-bg: #15232d;
     --content-bghover: #1F4662;
-    --content-border: #122738;
+    --content-border: #234E6D;
     --content-color: #e1efff;
     --button-bg: #ff9d00;
     --button-color: #15232D;
