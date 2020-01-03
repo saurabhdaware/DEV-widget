@@ -66,6 +66,26 @@ So a full example would look something like
 `default` `ocean`  `pink`  `dark`
 ![DEV Widget themes](https://res.cloudinary.com/saurabhdaware/image/upload/v1574802681/saurabhdawaretk/dev-widget-2.png)
 
+If you didn't set any theme, and you don't want the default theme, you can create your own using CSS variables in the `:root` selector
+
+```html
+:root {
+    --header-bg: #BEE3F8;
+    --header-color: #424242;
+    --header-logo-filter: invert(50%);
+    --content-bg: #EBF8FF;
+    --content-bghover: #BEE3F8;
+    --content-border: #EBF8FF;
+    --content-color: #2D3748;
+    --button-bg: #E2E8F0;
+    --button-color: #2D3748;
+    --scroll-track: #FFFFFF;
+    --scroll-thumb: #2D3748;
+    --likes-color: #000000;
+    --likes-icon-filter: invert(0%);
+}
+```
+
 ---
 
 ## Changelog

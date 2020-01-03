@@ -35,11 +35,9 @@ export class DevCard extends HTMLElement{
             this.setWidth();
         }
 
-        if(attr == 'data-theme' && oldValue != newValue && newValue != '' && newValue != 'default'){
+        if(attr == 'data-theme' && oldValue != newValue && newValue != ''){
             this[attr] = newValue;
             this.setTheme(newValue);
-        } else {
-            this.setDefaultVariables();
         }
     }
 
@@ -177,7 +175,10 @@ export class DevCard extends HTMLElement{
             })
     }
 
-    render(){
+    render(){        
+        if(!this.dataset.theme) {
+            this.setDefaultVariables();
+        }
         this.style.display = 'inline-block';
         this.articles = [];
         this.limit = this.dataset.limit || 30;
