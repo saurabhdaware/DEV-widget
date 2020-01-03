@@ -54,7 +54,8 @@ export class DevCard extends HTMLElement{
             '#222',
             '#eee',
             '#666',
-            '#999'
+            '#999',
+            'invert(0%)'
         ];
         const defaultVariables = [
             '--header-bg',
@@ -68,7 +69,8 @@ export class DevCard extends HTMLElement{
             '--button-color',
             '--scroll-track',
             '--scroll-thumb',
-            '--likes-color'
+            '--likes-color',
+            '--likes-icon-filter'
         ];
         defaultVariables.forEach((variable, index) => {
             if (
