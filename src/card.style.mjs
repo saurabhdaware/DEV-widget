@@ -3,19 +3,7 @@ export const css = // css
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: left;
-    font-family: Arial;
-    --header-bg:#111;
-    --header-color:#fff;
-    --header-logo-filter: invert(50%);
-    --content-bg: #fff;
-    --content-bghover: #eee;
-    --content-border: #ddd;
-    --content-color: #222;
-    --button-bg: #ddd;
-    --button-color: #222;
-    --scroll-track: #eee;
-    --scroll-thumb: #666;
-    --likes-color: #999;
+    font-family: Arial;    
 }
 
 /* DARK THEME */

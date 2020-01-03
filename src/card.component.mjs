@@ -35,10 +35,53 @@ export class DevCard extends HTMLElement{
             this.setWidth();
         }
 
-        if(attr == 'data-theme' && oldValue != newValue && newValue != ''){
+        if(attr == 'data-theme' && oldValue != newValue && newValue != '' && newValue != 'default'){
             this[attr] = newValue;
             this.setTheme(newValue);
+        } else {
+            this.setDefaultVariables();
         }
+    }
+
+    setDefaultVariables() {
+        const defaultColors = [
+            '#111',
+            '#fff',
+            'invert(50%)',
+            '#fff',
+            '#eee',
+            '#ddd',
+            '#222',
+            '#ddd',
+            '#222',
+            '#eee',
+            '#666',
+            '#999'
+        ];
+        const defaultVariables = [
+            '--header-bg',
+            '--header-color',
+            '--header-logo-filter',
+            '--content-bg',
+            '--content-bghover',
+            '--content-border',
+            '--content-color',
+            '--button-bg',
+            '--button-color',
+            '--scroll-track',
+            '--scroll-thumb',
+            '--likes-color'
+        ];
+        defaultVariables.forEach((variable, index) => {
+            if (
+                !getComputedStyle(document.documentElement).getPropertyValue(variable)
+            ) {
+                document.documentElement.style.setProperty(
+                    variable,
+                    defaultColors[index]
+                );
+            }
+        });
     }
 
     connectedCallback(){
