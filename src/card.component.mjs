@@ -1,7 +1,7 @@
 import {css} from './card.style.mjs';
 const template = document.createElement('template');
-template.innerHTML = // html
-`<style>
+template.innerHTML = /* html */ `
+<style>
     ${css}
 </style>
 <div class="card">
@@ -51,8 +51,7 @@ export class DevCard extends HTMLElement{
 
     renderArticles(articles){
         for(let article of articles){
-            this._shadowRoot.querySelector('.content').innerHTML += // html
-            `
+            this._shadowRoot.querySelector('.content').innerHTML += /* html */`
                 <a href="${article.url}" target="_blank" class="article-card">
                     <span class="title">${article.title}</span><br>
                     <div class="article-icon">
@@ -71,6 +70,8 @@ export class DevCard extends HTMLElement{
         // Main logic goes here
         const header = this._shadowRoot.querySelector('.header');
         const content = this._shadowRoot.querySelector('.content');
+        this.setHeight();
+
         let data = {}
         if(this.articles.length == 0){
             data = {
@@ -86,8 +87,7 @@ export class DevCard extends HTMLElement{
             }
         }
 
-        header.innerHTML += // html
-        `
+        header.innerHTML += /* html */ `
             ${(data.profilePic)?`<img class="profile-pic" src="${data.profilePic}" alt="${data.name}'s DEV Profile">`:''}
             <div class="name-container" ${(data.profilePic)?'':'style="margin-left:20px;"'}>
                 <span>${data.name}</span>
@@ -106,24 +106,50 @@ export class DevCard extends HTMLElement{
     }
 
     setTheme(theme){
-        let card = this._shadowRoot.childNodes[2];
+        let cardIndex = 0;
+        this._shadowRoot.childNodes.forEach((el, index) => {
+            if(el.classList && el.classList.contains('card')){
+                cardIndex = index;
+            }
+        })
+
+        let card = this._shadowRoot.childNodes[cardIndex];
         card.className = '';
         card.classList.add('card',theme);
     }
 
-    setWidth(){
+    setWidth() {
         this.style.width = this.dataset.width || '300px';
     }
 
+    setHeight() {
+        this._shadowRoot.querySelector('.content').style.maxHeight = this.dataset.contentheight || '300px';
+    }
+
     fetchArticles(pageNumber,articlesNumber = 30){
-        return fetch('https://dev.to/api/articles?username='+this.dataset.username+'&page='+pageNumber)
+        return fetch('https://dev.to/api/articles?username='+this.dataset.username.toLowerCase()+'&page='+pageNumber)
             .then(res => res.json())
             .then(articles => {
                 this.articles = articles;
+                this.allArticles.push(...this.articles);
+
                 if(pageNumber === 1){
                     this.createCard();
                 }
-                this.renderArticles(this.articles.slice(0,articlesNumber));
+
+                
+                if(this.sortby === 'reactions') {
+                    this._shadowRoot.querySelector('.content').innerHTML = '';
+                    this.renderArticles(
+                        this.allArticles
+                            .slice(0, this.limit)
+                            .sort((a, b) => a.positive_reactions_count > b.positive_reactions_count ? -1 : 1)
+                    )
+                }else if(this.sortby === 'date') {
+                    this.renderArticles(this.articles.slice(0,articlesNumber));
+                }
+
+                // Make another request if more than 30 articles
                 if(this.articles.length === 30 && pageNumber < this.pageLimit){
                     if((pageNumber + 1) === this.pageLimit){ // IF(Last page):
                         this.fetchArticles(++pageNumber, this.limit % 30);
@@ -137,6 +163,8 @@ export class DevCard extends HTMLElement{
     render(){
         this.style.display = 'inline-block';
         this.articles = [];
+        this.allArticles = [];
+        this.sortby = this.dataset.sortby || 'date';
         this.limit = this.dataset.limit || 30;
         this.pageLimit = Math.ceil(this.limit / 30);
         this.setWidth();

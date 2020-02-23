@@ -10,7 +10,7 @@ Unofficial Widget / profile card for [dev.to](https://dev.to/).
 You can use it in your website/blog and show off your DEV.to articles :sunflower:
 <br><br>
 
-[![Screenshot of the DEV.to Widget](https://res.cloudinary.com/saurabhdaware/image/upload/v1571605298/saurabh2019/Screenshot_from_2019-10-21_02-30-14.png)](#installation-and-usage)
+[![Screenshot of the DEV.to Widget](https://res.cloudinary.com/saurabhdaware/image/upload/v1582470292/npm/Screenshot_from_2020-02-23_20-33-03.png)](#installation-and-usage)
 
 ---
 
@@ -23,7 +23,7 @@ You can use it in your website/blog and show off your DEV.to articles :sunflower
     <dev-widget data-username="saurabhdaware"></dev-widget>
 
     <!-- Place script tag before the end of the body tag -->
-    <script src="https://unpkg.com/dev-widget@1.1.0/dist/card.component.min.mjs" type="module"></script>
+    <script src="https://unpkg.com/dev-widget@^1/dist/card.component.min.mjs" type="module"></script>
 ```
 
 
@@ -47,23 +47,36 @@ import 'dev-widget'
 |---------------|-------------------------------|--------------------------|
 | data-username | Your DEV.to Username          |                          |
 | data-width    | Width of the card             | 300px                    |
-| data-theme    | **Theme of the card** (dark, ocean, pink, default) | default                  |
+| data-contentheight | Height of the Aricles Container | 300px             |
+| data-theme    | **Theme of the card** (`dark`, `ocean`, `pink`, `cobalt2`, `default`) | default                  |
 | data-name (optional)    | Name to display on card       | Will be fetched from API |
 | data-limit    | Number of articles to display | 30                       |
+| data-sortby   | Sort articles (`date`, `reactions`) | date                |
+
 
 **Note:** Value of `data-limit` should not be too high. An API request has to be made for every 30 articles so for `data-limit=200` 7 API requests will be made synchronously.
 
-So a full example would look something like 
+So a full example with every attribute would look something like
 ```html
-<dev-widget data-username="saurabhdaware" data-width="320px" data-theme="ocean" data-limit="3" data-name="Saurabh 😎" ></dev-widget>
+<dev-widget 
+    data-username="saurabhdaware" 
+    data-theme="ocean" 
+    data-sortby="reactions" 
+    data-width="320px" 
+    data-contentheight="200px" 
+    data-limit="3" 
+    data-name="Saurabh 😎" 
+></dev-widget>
 
 <!-- Place script tag before the end of the body tag -->
-<script src="https://unpkg.com/dev-widget@1.1.0/dist/card.component.min.mjs" type="module"></script>
+<script src="https://unpkg.com/dev-widget@^1/dist/card.component.min.mjs" type="module"></script>
 ```
+*Note: Only `data-username` is neccessary and every other attribute is optional*
+
 
 ---
 ## Themes
-`default` `ocean`  `pink`  `dark`
+`default` `ocean`  `pink`  `dark` `cobalt2`
 ![DEV Widget themes](https://res.cloudinary.com/saurabhdaware/image/upload/v1574802681/saurabhdawaretk/dev-widget-2.png)
 
 ---

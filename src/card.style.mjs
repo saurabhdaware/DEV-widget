@@ -1,5 +1,4 @@
-export const css = // css
-`
+export const css = /* css */ `
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: left;
@@ -66,6 +65,23 @@ export const css = // css
     --scroll-thumb: #000;
     --likes-color: #555;
     --likes-icon-filter: invert(90%);
+}
+
+/* By @b3u(https://github.com/b3u)! */
+.card.cobalt2 {
+    --header-bg:#193549;
+    --header-color:#e1efff;
+    --header-logo-filter: invert(0%);
+    --content-bg: #15232d;
+    --content-bghover: #1c3140;
+    --content-border: #234E6D;
+    --content-color: #aaaaaa;
+    --button-bg: #ff9d00;
+    --button-color: #15232D;
+    --scroll-track: #122738;
+    --scroll-thumb: #ffc600;
+    --likes-color: #aaaaaa;
+    --likes-icon-filter: invert(100%);
 }
 
 .profile-pic{
