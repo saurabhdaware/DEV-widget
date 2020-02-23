@@ -127,7 +127,7 @@ export class DevCard extends HTMLElement{
     }
 
     fetchArticles(pageNumber,articlesNumber = 30){
-        return fetch('https://dev.to/api/articles?username='+this.dataset.username+'&page='+pageNumber)
+        return fetch('https://dev.to/api/articles?username='+this.dataset.username.toLowerCase()+'&page='+pageNumber)
             .then(res => res.json())
             .then(articles => {
                 this.articles = articles;
