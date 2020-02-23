@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DEV-widget Creator">
+  
+  <meta name="twitter:card" content="summary_large_image"></meta>
+  <meta name="twitter:creator" content="@saurabhcodes"></meta>
+
+
+
+  <meta property="og:image:secure_url" itemprop="image" content="https://res.cloudinary.com/saurabhdaware/image/upload/v1582478745/npm/devwidget-gen.png">
+  <meta property="og:image" itemprop="image" content="https://res.cloudinary.com/saurabhdaware/image/upload/v1582478745/npm/devwidget-gen.png">
+  <meta property="og:image:width" content="600" />
+  <meta property="og:image:height" content="300" />
+
+  <meta property="og:description" content="Create your DEV.to Widget and paste the code in your website/blog to show off your articles!">
+
+
+  <title>Create DEV.to Widget</title>
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+  <style>
+    html, body{
+      margin: 0px;
+      padding: 0px;
+      background-color: #ddd;
+      color: #222;
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    *{
+      box-sizing: border-box;
+    }
+    .main-container{
+      display: flex;
+    }
+
+    .btn{
+      border: none;
+      padding: 10px 30px;
+      font-weight: bold;
+    }
+
+    .menu{
+      flex:1;
+      padding: 20px 40px;
+      background-color: #fff;
+      box-shadow: 2px 3px 15px 9px rgba(0,0,0,.2);
+      height: 100%;
+    }
+
+    label{
+      display: block;
+      font-weight: bold;
+      margin-bottom: 3px;
+      color: #444;
+    }
+
+    input, select{
+      display: block;
+      width: 100%;
+      padding: 8px 7px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    .widget-container{
+      flex: 3;
+      padding: 30px 60px;
+      display: flex;
+    }
+
+    .widget-holder{
+      display: inline-block;
+    }
+    .code-holder{
+      display: inline-block;
+      flex: 1;
+      max-width: 600px;
+      padding: 0px 30px;
+    }
+    code{
+      display: block;
+      padding: 10px 20px;
+      font-size: 14pt;
+    }
+    .copy-button{
+      background-color: #222;
+      width: 300px;
+      color: #fff;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 11pt;
+    }
+
+    .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+
+    @media (max-width: 768px){
+      .main-container{
+        display: block;
+      }
+
+      .widget-container{
+        display: block;
+        padding: 10px;
+      }
+
+      .code-holder{
+        padding: 5px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container" style="height: 100%;">
+    <div class="menu">
+      <h1>DEV-Widget</h1><br>
+      <label for="username">DEV.to Username</label>
+      <input type="text" id="username" autocomplete="off" value="saurabhdaware">
+
+      <label for="theme">Theme</label>
+      <select id="theme">
+        <option value="default">Default</option>
+        <option value="pink">Pink</option>
+        <option value="ocean">Ocean</option>
+        <option value="dark">Dark</option>
+        <option value="cobalt2">Cobalt2</option>
+      </select>
+
+      <label for="sortby">Sort By</label>
+      <select id="sortby">
+        <option value="date">Date</option>
+        <option value="reactions">Reactions</option>
+      </select>
+
+      <label for="limit">Limit</label>
+      <input type="number" id="limit" value="30">
+
+      <label for="width">Card Width</label>
+      <input type="text" id="width" value="300px">
+
+      <label for="contentheight">Content Height</label>
+      <input type="text" id="contentheight" value="300px">
+
+      <button class="btn create-btn" style="cursor: pointer;" id="create-button">Generate</button>
+
+    </div>
+    <div class="widget-container">
+      <div class="widget-holder"></div>
+      <div class="code-holder">
+        <pre><code class="html" contenteditable></code></pre>
+        <div style="text-align: center;">
+          <button class="btn copy-button">Copy Code</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://github.com/saurabhdaware/dev-widget" target="_blank" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+  </a>
+  <script src="https://unpkg.com/dev-widget@^1/dist/card.component.min.mjs" type="module"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>
+
+
+    function createCard() {
+      const username = document.querySelector('#username').value;
+      const theme = document.querySelector('#theme').value;
+      const sortby = document.querySelector('#sortby').value;
+      const limit = document.querySelector('#limit').value;
+      const width = document.querySelector('#width').value;
+      const contentheight = document.querySelector('#contentheight').value;
+
+      const widgetCode = /* html */`<dev-widget 
+  data-username="${username}"
+  data-theme="${theme}"
+  data-sortby="${sortby}"
+  data-limit="${limit}"
+  data-width="${width}"
+  data-contentheight="${contentheight}"
+></dev-widget>
+`
+
+      scriptCode = `&lt;script src="https://unpkg.com/dev-widget@^1/dist/card.component.min.mjs" type="module"&gt;&lt;/script&gt;`;
+
+      document.querySelector('.widget-holder').innerHTML = widgetCode;
+
+      let codeBlockCode = (widgetCode +'\n\n'+scriptCode).replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+      document.querySelector('code').innerHTML = codeBlockCode;
+
+      hljs.highlightBlock(document.querySelector('code'));
+    }
+
+
+    function copyCode() {
+      var copyText = document.querySelector("code");
+      const testIp = document.createElement('textarea');
+      testIp.style.position = 'fixed';
+      testIp.style.top = '-10000px';
+      document.body.append(testIp);
+      testIp.value = copyText.innerText.replace(/\n/g, '\r\n');
+      testIp.select();
+      testIp.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("copied");
+    }
+
+    hljs.initHighlightingOnLoad();
+    createCard();
+    document.querySelector('.copy-button').addEventListener('click', copyCode);
+    document.querySelector('#create-button').addEventListener('click', createCard);
+  </script>
+</body>
+</html>
