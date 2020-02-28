@@ -101,6 +101,23 @@
     }
 
     .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+	
+	#copy-txt {
+	  visibility: hidden;
+	  position: fixed;
+	  top: 30px;
+	  left: 50%;
+	  min-width: 200px;
+	  margin-left: -100px;
+	  background-color: #a8d06e;
+	  color: #fff;
+	  text-align: center;
+	  border-radius: 2px;
+	  padding: 16px;
+	  z-index: 1;
+	}
+
+	#copy-txt.show{visibility:visible;-webkit-animation:fadein .5s,fadeout .5s 2.5s;animation:fadein .5s,fadeout .5s 2.5s}@-webkit-keyframes fadein{from{top:0;opacity:0}to{top:30px;opacity:1}}@keyframes fadein{from{top:0;opacity:0}to{top:30px;opacity:1}}@-webkit-keyframes fadeout{from{top:30px;opacity:1}to{top:0;opacity:0}}@keyframes fadeout{from{top:30px;opacity:1}to{top:0;opacity:0}}
 
     @media (max-width: 768px){
       .main-container{
@@ -162,6 +179,7 @@
         </div>
       </div>
     </div>
+	<div id="copy-txt">&#x2714; Copied</div>
   </div>
 
   <a href="https://github.com/saurabhdaware/dev-widget" target="_blank" class="github-corner" aria-label="View source on GitHub">
@@ -212,7 +230,9 @@
       testIp.select();
       testIp.setSelectionRange(0, 99999)
       document.execCommand("copy");
-      alert("copied");
+      var copyToast = document.getElementById("copy-txt");
+      copyToast.className = "show";
+      setTimeout(function () { copyToast.className = copyToast.className.replace("show", ""); }, 3000);
     }
 
     hljs.initHighlightingOnLoad();
