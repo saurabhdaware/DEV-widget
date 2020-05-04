@@ -3,6 +3,8 @@
 <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/saurabhdaware/dev-widget?style=flat-square"> <a href="CONTRIBUTING.md"><img alt="Contributions to DEV Widget are welcomed" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=flat-square"></a>
 </p>
 
+***GUI to Generate Card***: [https://dev-widget.netlify.app/create](https://dev-widget.netlify.app/create)
+
 ***Codepen***: [https://codepen.io/saurabhdaware/pen/NWWbOvv](https://codepen.io/saurabhdaware/pen/NWWbOvv)
 
 Unofficial Widget / profile card for [dev.to](https://dev.to/). 
