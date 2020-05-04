@@ -138,7 +138,7 @@
 </head>
 <body>
   <div class="main-container" style="height: 100%;">
-    <div class="menu">
+    <form class="menu">
       <h1>DEV-Widget</h1><br>
       <label for="username">DEV.to Username</label>
       <input type="text" id="username" autocomplete="off" value="saurabhdaware">
@@ -167,9 +167,9 @@
       <label for="contentheight">Content Height</label>
       <input type="text" id="contentheight" value="300px">
 
-      <button class="btn create-btn" style="cursor: pointer;" id="create-button">Generate</button>
+      <button type="submit" class="btn create-btn" style="cursor: pointer;" id="create-button">Generate</button>
 
-    </div>
+    </form>
     <div class="widget-container">
       <div class="widget-holder"></div>
       <div class="code-holder">
@@ -237,8 +237,17 @@
 
     hljs.initHighlightingOnLoad();
     createCard();
+
+    document.querySelectorAll('form.menu select, form.menu input')
+      .forEach(select => 
+        select.addEventListener('change', createCard)
+      )
+
     document.querySelector('.copy-button').addEventListener('click', copyCode);
-    document.querySelector('#create-button').addEventListener('click', createCard);
+    document.querySelector('#create-button').addEventListener('click', e => {
+      e.preventDefault();
+      createCard();
+    });
   </script>
 </body>
 </html>
