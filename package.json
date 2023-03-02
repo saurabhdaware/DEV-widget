@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/saurabhdaware/DEV-widget#readme",
   "devDependencies": {
-    "@node-minify/core": "^5.2.1",
+    "@node-minify/core": "^8.0.5",
     "@node-minify/terser": "^5.2.1",
     "fs-extra": "^8.1.0",
     "serve": "^11.2.0"
